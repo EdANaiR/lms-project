@@ -1,36 +1,157 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini Udemy + Mini Uber Sistemi
 
-## Getting Started
+Üç ana modülden oluşan full-stack web uygulaması:
 
-First, run the development server:
+1. **Kullanıcı Yönetimi** (3 Rol: Öğrenci, Eğitmen, Admin)
+2. **Mini Udemy Akışı** (Kurs Satın Alma + Wallet Sistemi)
+3. **Mini Uber Mantığı** (Eğitmen-Öğrenci Eşleştirme)
+
+---
+
+### 1. Gereksinimler
+
+- Node.js 18+
+- npm veya yarn
+
+### 2. Kurulum
 
 ```bash
+# Bağımlılıkları yükle
+npm install
+
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Tarayıcıda Aç
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000/login
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Test Kredileri
 
-## Learn More
+| Rol     | Kullanıcı Adı | Şifre |
+| ------- | ------------- | ----- |
+| Öğrenci | ogrenci       | 123   |
+| Eğitmen | egitmen       | 123   |
+| Admin   | admin         | 123   |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Proje Yapısı
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+gt-case/
+├── app/
+│   ├── api/
+│   │   ├── auth/login/
+│   │   ├── courses/purchase/
+│   │   ├── match/request/
+│   │   └── dashboard/data/
+│   ├── (auth)/login/page.tsx     # Login sayfası
+│   ├── dashboard/page.tsx        # dashboard
+│   ├── layout.tsx
+│   └── globals.css
+├── components/
+│   ├── CourseCard.tsx
+│   ├── PurchasedCourseCard.tsx
+│   ├── LessonRequestForm.tsx
+│   ├── RequestsList.tsx
+│   └── ProtectedRoute.tsx
+├── types/index.ts
+├── lib/db.ts
+├── data/db.json
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Temel Özellikler
+
+### Modül 1: Kullanıcı Yönetimi
+
+- 3 Rol: user (öğrenci), instructor (eğitmen), admin
+- Mock JSON veri tabanı
+- localStorage ile session yönetimi
+- Protected routes
+
+### Modül 2: Kurs Satın Alma
+
+- 2 örnek kurs
+- Wallet bakiyesi kontrolü
+- Duplikat satın alma kontrolü
+- Satın Aldığım Eğitimler listesi
+
+### Modül 3: Eğitmen Eşleştirme
+
+- Canlı ders talep oluşturma
+- Otomatik eğitmen atama
+- Bildirim simülasyonu
+- Talep listesi ve durum takibi
+
+---
+
+## Teknoloji Stack
+
+| Katman       | Teknoloji                     |
+| ------------ | ----------------------------- |
+| **Frontend** | Next.js 14, React, TypeScript |
+| **Styling**  | Tailwind CSS                  |
+| **Backend**  | Next.js API Routes            |
+| **Database** | JSON (Mock)                   |
+| **State**    | React Hooks + localStorage    |
+
+---
+
+## API Endpoints
+
+
+```
+
+POST /api/auth/login
+
+- Body: { username: string, password: string }
+- Response: { success: true, user: User }
+
+```
+
+### Courses
+
+```
+
+POST /api/courses/purchase
+
+- Body: { userId: number, courseId: number }
+- Response: { success: true, message: string, remainingBalance: number }
+
+GET /api/dashboard/data
+
+- Response: { courses: Course[], matchRequests: MatchRequest[] }
+
+```
+
+### Matching
+
+```
+
+POST /api/match/request
+
+- Body: { studentId: number, topic: string }
+- Response: { success: true, matchDetails: MatchRequest }
+
+```
+
+---
+
+## Güvenlik Özellikleri
+
+- ✅ Protected routes (ProtectedRoute component)
+- ✅ localStorage kontrolleri
+- ✅ Backend validasyon
+- ✅ TypeScript type safety
+- ✅ Error handling
+
+
+#
+```

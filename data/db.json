@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "ogrenci",
+      "password": "123",
+      "role": "user",
+      "wallet": 1250,
+      "purchasedCourseIds": []
+    },
+    {
+      "id": 2,
+      "username": "egitmen",
+      "password": "123",
+      "role": "instructor",
+      "wallet": 0,
+      "purchasedCourseIds": []
+    },
+    {
+      "id": 99,
+      "username": "admin",
+      "password": "123",
+      "role": "admin",
+      "wallet": 0,
+      "purchasedCourseIds": []
+    }
+  ],
+  "courses": [
+    {
+      "id": 101,
+      "title": "Next.js ile Web Programlama",
+      "description": "App Router ve Server Actions öğreniyoruz.",
+      "instructorName": "Ahmet Kavaklı",
+      "price": 250
+    },
+    {
+      "id": 102,
+      "title": ".NET Core ile Backend Geliştirme",
+      "description": "İleri seviye backend mimarileri.",
+      "instructorName": "Mehmet Yılmaz",
+      "price": 400
+    }
+  ],
+  "matchRequests": [
+    {},
+    {
+      "id": 2,
+      "studentId": 1,
+      "topic": ".net core",
+      "status": "matched",
+      "assignedInstructorId": 2,
+      "assignedInstructorName": "egitmen",
+      "notificationSent": true
+    }
+  ]
+}
