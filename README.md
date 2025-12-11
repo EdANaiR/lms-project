@@ -107,7 +107,6 @@ gt-case/
 ## API Endpoints
 
 
-```
 
 POST /api/auth/login
 
@@ -115,8 +114,6 @@ POST /api/auth/login
 - Response: { success: true, user: User }
 
 ```
-
-### Courses
 
 ```
 
@@ -131,8 +128,6 @@ GET /api/dashboard/data
 
 ```
 
-### Matching
-
 ```
 
 POST /api/match/request
@@ -142,8 +137,6 @@ POST /api/match/request
 
 ```
 
----
-
 ## Güvenlik Özellikleri
 
 - ✅ Protected routes (ProtectedRoute component)
@@ -152,6 +145,8 @@ POST /api/match/request
 - ✅ TypeScript type safety
 - ✅ Error handling
 
-
 #
+
+```
+
 ```
